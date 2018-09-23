@@ -23,9 +23,10 @@ class Search extends React.Component {
     return (
       <div className='form'>
         <form onSubmit={this.handleClick}>
-        <label>Gimme a Git</label>
-        <input type='text' value={this.state.input} onChange={this.handleChange}/>
-        <input type='submit'/>
+        <h1>Gimme a Git</h1>
+        <input id='git-field' type='text' value={this.state.input} onChange={this.handleChange}/>
+        <br></br>
+        <input id='submit' type='submit'/>
         </form>
       </div>
     )

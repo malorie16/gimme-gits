@@ -1,5 +1,60 @@
+@font-face {
+  font-family: 'Cicero';
+  src: url('./fonts/CiceroSerif.ttf');
+}
+
+@font-face {
+  font-family: 'Valentina';
+  src: url('./fonts/Valentina-Regular1.otf');
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: linear-gradient( 109.6deg,  rgba(212,80,80,1) 11.2%, rgba(177,57,57,1) 100.2% );
+}
+
+h1 {
+  color: white;
+  font-family: 'Cicero';
+}
+
+#git-field, #submit {
+  font-family: 'Cicero';
+  outline: none;
+}
+
+#git-field {
+  height: 40px;
+  font-size: 35px;
+  text-align: center;
+}
+
+#submit {
+  font-size: 20px;
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  transition: ease-in-out .2s;
+}
+
+#submit:hover {
+  color: blue;
+}
+
+.git-container {
+  text-align: center;
+}
+
+p, h2 {
+  color: white;
+  font-family: 'Valentina';
+}
+
+img {
+  border-radius: 100%;
+  margin-top: 10px;
+  border: solid 5px white;
 }
