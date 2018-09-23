@@ -4,4 +4,4 @@ This is an app that uses the GitHub API to search for GitHub users.
 
 It was bootstrapped with create-react-app to get it off the ground quickly.
 
-![Alt Text](https://media.giphy.com/media/YjRJZeaJfm4DkEtvpX/giphy.gif)
+<img src="https://media.giphy.com/media/YjRJZeaJfm4DkEtvpX/giphy.gif" height="200" width="300"/>
