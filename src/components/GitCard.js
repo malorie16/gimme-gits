@@ -15,7 +15,7 @@ const GitCard = (props) => {
         </div>
       )
     } else {
-      return null
+      return <h1>Search for a GitHub user above!</h1>
     }
   }
   return (
