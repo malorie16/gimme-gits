@@ -1,0 +1,9 @@
+.git-container {
+  /* text-align: center !important; */
+  margin: 0 auto;
+  border: solid 1px red;
+}
+
+p {
+  color: red;
+}
