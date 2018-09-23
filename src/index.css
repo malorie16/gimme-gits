@@ -42,6 +42,7 @@ h1 {
 
 #submit:hover {
   color: blue;
+  cursor: pointer;
 }
 
 .git-container {
@@ -57,4 +58,11 @@ img {
   border-radius: 100%;
   margin-top: 10px;
   border: solid 5px white;
+}
+
+.git-card {
+  display: grid;
+  grid-template-columns: 470px 470px;
+  align-items: center;
+  justify-content: center;
 }

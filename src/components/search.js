@@ -12,11 +12,16 @@ class Search extends React.Component {
   }
 
   handleClick = (e) => {
-    e.preventDefault()
-    this.props.handleSubmit(this.state.input)
-    this.setState({
-      input: ''
-    })
+    if (this.state.input.trim() === '') {
+      e.preventDefault()
+      alert("Isn't there anything we can git you? Please enter a username.")
+    } else {
+      e.preventDefault()
+      this.props.handleSubmit(this.state.input.trim())
+      this.setState({
+        input: ''
+      })
+    }
   }
 
   render() {
