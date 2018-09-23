@@ -5,14 +5,7 @@ import getUser from './adapter/adapter.js'
 
 class App extends Component {
   state = {
-    // user: ''
-    user: {
-      name: 'Malorie Casimir',
-      public_repos: 249,
-      avatar_url: 'https://avatars1.githubusercontent.com/u/37854050?v=4',
-      email: 'maloriecasimirdev@gmail.com',
-      company: 'Freelancer'
-    }
+    user: ''
   }
 
   handleSubmit = (username) => {
