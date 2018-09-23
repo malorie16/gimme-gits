@@ -8,6 +8,7 @@ class App extends Component {
     user: ''
   }
 
+  //hits Github API and sets the local state to its response
   handleSubmit = (username) => {
     getUser(username)
     .then(data => {
@@ -20,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="git-container">
-        <Search user={this.state.user} handleSubmit={this.handleSubmit}/>
+        <Search handleSubmit={this.handleSubmit}/>
         <GitCard user={this.state.user}/>
       </div>
     );

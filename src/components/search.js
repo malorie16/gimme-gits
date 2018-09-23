@@ -5,6 +5,7 @@ class Search extends React.Component {
     input: ''
   }
 
+  //controls our input
   handleChange = (e) => {
     this.setState({
       input: e.target.value
@@ -12,12 +13,15 @@ class Search extends React.Component {
   }
 
   handleClick = (e) => {
+    //checks to see if the user didn't input anything
     if (this.state.input.trim() === '') {
       e.preventDefault()
       alert("Isn't there anything we can git you? Please enter a username.")
     } else {
+      //lifts the state to App.js so we can make our API call
       e.preventDefault()
       this.props.handleSubmit(this.state.input.trim())
+      //resets our input 
       this.setState({
         input: ''
       })
