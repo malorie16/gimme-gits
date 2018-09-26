@@ -3,11 +3,8 @@ import React from 'react'
 const GitCard = (props) => {
 
   const renderCard = () => {
-    //checks for an error message
-    if (props.user.message) {
-      return <h1>We couldn't find that user! Try again.</h1>
     //displays user's information if fetch was successful
-    } else if (props.user) {
+    if (props.user) {
       return (
         <div className='git-card'>
           <img src={props.user.avatar_url} alt=''/>

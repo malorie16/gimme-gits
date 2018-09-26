@@ -23,12 +23,17 @@ class App extends Component {
     //if it's not in local storage, we hit the API and save it to local storage
     } else {
       getUser(username)
-      .then(data => {
-        this.setState({
-          user: data
-        }, () => store[username] = this.state.user)
+        .then(data => {
+          if (data.message) {
+            alert("We couldn't find that user! Try again.")
+          } else {
+          this.setState({
+            user: data
+          }, () => store[username] = this.state.user
+        )
+        localStorage.setItem('store', JSON.stringify(store))
+        }
       })
-      localStorage.setItem('store', JSON.stringify(store))
     }
   }
 
