@@ -10,9 +10,7 @@ const store = JSON.parse(localStorage.getItem("store")) || {};
 
 class App extends Component {
   state = {
-    user: '',
-    favorite: '',
-    toggle: ''
+    user: ''
   }
   
   //hits Github API and sets the local state to its response
@@ -20,16 +18,14 @@ class App extends Component {
     //checks local storage before hitting API
     if (store[username]) {
       this.setState({
-          favorite: JSON.parse(localStorage.store)[username],
-          toggle: 'fav'
+          user: JSON.parse(localStorage.store)[username]
       })
     //if it's not in local storage, we hit the API and save it to local storage
     } else {
       getUser(username)
       .then(data => {
         this.setState({
-          user: data,
-          toggle: 'search'
+          user: data
         }, () => store[username] = this.state.user)
       })
       localStorage.setItem('store', JSON.stringify(store))
@@ -39,27 +35,25 @@ class App extends Component {
   //renders list of favorites if they exist
   renderSearches = () => {
     if (localStorage.store) {
-      return <PriorSearch viewFavorite={this.viewFavorite} />
+      return <PriorSearch viewSearched={this.viewSearched}/>
     } else {
       return
     }
   }
 
   //sets state so we can toggle from the searched user to the favorited user
-  viewFavorite = (e) => {
-    const fav = e.target.innerText
+  viewSearched = (e) => {
+    const previous = e.target.innerText
     this.setState({
-      user: JSON.parse(localStorage.store)[fav],
-      toggle: 'fav'
+      user: JSON.parse(localStorage.store)[previous]
     })
   }
 
   render() {
-    console.log(this.state.user)
     return (
       <div className="git-container">
         <Search handleSubmit={this.handleSubmit}/>
-        <GitCard user={this.state.user} handleSave={this.handleSave}/>
+        <GitCard user={this.state.user}/>
         {this.renderSearches()}
       </div>
     );
