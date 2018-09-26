@@ -20,7 +20,7 @@ h1 {
   font-family: 'Cicero';
 }
 
-#git-field, #submit {
+#git-field, #submit, button {
   font-family: 'Cicero';
   outline: none;
 }
@@ -31,7 +31,11 @@ h1 {
   text-align: center;
 }
 
-#submit {
+#fav {
+  transition: ease-in-out .2s;
+}
+
+#submit, button {
   font-size: 20px;
   margin-top: 10px;
   background-color: transparent;
@@ -40,7 +44,7 @@ h1 {
   transition: ease-in-out .2s;
 }
 
-#submit:hover {
+#submit:hover, #fav:hover, button:hover {
   color: blue;
   cursor: pointer;
 }
