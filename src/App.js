@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Search from './components/search.js'
 import GitCard from './components/GitCard.js'
+import PriorSearch from "./components/PriorSearch";
 import getUser from './adapter/adapter.js'
+
 
 //local storage
 const store = JSON.parse(localStorage.getItem("store")) || {};
@@ -35,17 +37,9 @@ class App extends Component {
   }
 
   //renders list of favorites if they exist
-  renderFavorites = () => {
+  renderSearches = () => {
     if (localStorage.store) {
-    const favs = Object.keys(JSON.parse(localStorage.store)).map((key) => {
-        return <p id='fav' key={key.id} onClick={this.viewFavorite}>{key}</p>
-     })
-     return (
-      <div>
-        <p>Recent searches:</p>
-        {favs.reverse()}
-      </div>
-     )
+      return <PriorSearch viewFavorite={this.viewFavorite} />
     } else {
       return
     }
@@ -55,28 +49,18 @@ class App extends Component {
   viewFavorite = (e) => {
     const fav = e.target.innerText
     this.setState({
-      favorite: JSON.parse(localStorage.store)[fav],
+      user: JSON.parse(localStorage.store)[fav],
       toggle: 'fav'
     })
   }
 
-  //renders favorited user
-  renderSavedCard = () => {
-    return <GitCard user={this.state.favorite} favorite='true' deleteFavorite={this.handleDelete}/>;
-  }
-
-  //renders searched user
-  renderSearchCard = () => {
-    return <GitCard user={this.state.user} handleSave={this.handleSave} />
-  }
-
   render() {
-    console.log(this.state.favorite)
+    console.log(this.state.user)
     return (
       <div className="git-container">
         <Search handleSubmit={this.handleSubmit}/>
-        {this.state.toggle === 'fav' ? this.renderSavedCard() : this.renderSearchCard()}
-        {this.renderFavorites()}
+        <GitCard user={this.state.user} handleSave={this.handleSave}/>
+        {this.renderSearches()}
       </div>
     );
   }
